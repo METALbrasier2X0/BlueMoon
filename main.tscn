@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnu055b5cxgfu"]
+
+[ext_resource type="PackedScene" uid="uid://cfptwv2rb2ivy" path="res://Src/Characters/Player/Player.tscn" id="1_0gpiu"]
+[ext_resource type="Script" path="res://main.gd" id="1_yed2f"]
+[ext_resource type="PackedScene" uid="uid://cyqegk35ntcyu" path="res://Src/Props/Interactible/Objects/Tree.tscn" id="2_u5pxh"]
+[ext_resource type="PackedScene" uid="uid://r7i0i4y86ipn" path="res://Src/Characters/Npc/Npc.tscn" id="4_jfc6k"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_yed2f")
+
+[node name="Player" parent="." instance=ExtResource("1_0gpiu")]
+position = Vector2(184, 310)
+
+[node name="Tree" parent="." instance=ExtResource("2_u5pxh")]
+position = Vector2(697, 175)
+
+[node name="Npc" parent="." instance=ExtResource("4_jfc6k")]
+position = Vector2(649, 509)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm6o2pa1mqlhp"]
+
+[ext_resource type="Texture2D" uid="uid://dups7ib030ur1" path="res://icon.svg" id="1_ndyvj"]
+[ext_resource type="Texture2D" uid="uid://da5mrihady0lt" path="res://Assets/Portraits/LadyWoof.png" id="2_1nwx6"]
+
+[node name="Dialogue" type="CanvasLayer"]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_top = 498.0
+offset_right = 1149.0
+offset_bottom = 644.0
+texture = ExtResource("1_ndyvj")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_right = 1135.0
+offset_bottom = 145.0
+text = "BRuh"
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 973.0
+offset_top = -5.0
+offset_right = 1130.0
+offset_bottom = 157.0
+texture = ExtResource("2_1nwx6")
+expand_mode = 1

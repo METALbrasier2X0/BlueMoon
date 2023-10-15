@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cq5jkeljpfkj1"]
+
+[node name="HarvestableGround" type="Area2D"]

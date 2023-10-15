@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyqegk35ntcyu"]
+
+[ext_resource type="Texture2D" uid="uid://dups7ib030ur1" path="res://icon.svg" id="1_c7r4y"]
+[ext_resource type="Script" path="res://Src/Props/Interactible/Objects/HarvestableItems.gd" id="1_rj3bh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shjhy"]
+size = Vector2(213, 215)
+
+[node name="Tree" type="StaticBody2D"]
+script = ExtResource("1_rj3bh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(4.76837e-07, 0)
+scale = Vector2(1.73438, 1.73438)
+texture = ExtResource("1_c7r4y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_shjhy")
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

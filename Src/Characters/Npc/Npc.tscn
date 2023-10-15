@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://r7i0i4y86ipn"]
+
+[ext_resource type="Texture2D" uid="uid://3maj70myh62m" path="res://Assets/Spritsheets/ladyWoof.png" id="1_poedi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xbv7"]
+size = Vector2(49, 105)
+
+[node name="Npc" type="CharacterBody2D"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(-5.68434e-14, 2.84217e-14)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_poedi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2xbv7")
+metadata/_edit_group_ = true
