@@ -39,8 +39,7 @@ func Interact(body):
 	if body.name == "Npc" :
 		find_and_use_dialogue()
 	else :
-		var cutTree = preload("res://Assets/Spritsheets/tree2.png")
-		body.get_node("Sprite2D").set_texture(cutTree)
+		body.interact()
 		
 
 	"""

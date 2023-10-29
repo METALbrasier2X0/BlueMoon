@@ -1,13 +1,13 @@
 [gd_scene load_steps=4 format=3 uid="uid://cyqegk35ntcyu"]
 
-[ext_resource type="Script" path="res://Src/Props/Interactible/Objects/HarvestableItems.gd" id="1_rj3bh"]
+[ext_resource type="Script" path="res://Src/Props/Interactible/Objects/Tree.gd" id="1_5dn2a"]
 [ext_resource type="Texture2D" uid="uid://7noxvdkvokgg" path="res://Assets/Spritsheets/tree.png" id="2_u8tf5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shjhy"]
 size = Vector2(130.75, 100.25)
 
 [node name="Tree" type="StaticBody2D"]
-script = ExtResource("1_rj3bh")
+script = ExtResource("1_5dn2a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-8, -93)
