@@ -7,6 +7,7 @@ func _ready():
 func create_instance(add):
 	var scene = load(add)
 	var scene_instance = scene.instance()
+	
 	return scene_instance
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -15,5 +16,3 @@ func _process(delta):
 
 func _on_tree_exited():
 	print ('test')
-	
-	

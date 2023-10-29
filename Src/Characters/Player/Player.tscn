@@ -33,5 +33,6 @@ drag_top_margin = 0.05
 drag_right_margin = 0.05
 drag_bottom_margin = 0.05
 
+[connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Usebox" to="." method="_on_usebox_body_entered"]
 [connection signal="body_exited" from="Usebox" to="." method="_on_usebox_body_exited"]
