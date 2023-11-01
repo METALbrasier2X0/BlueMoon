@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://btsedmkggvqhw"]
+
+[ext_resource type="Script" path="res://Src/Props/Interactible/Objects/Rock.gd" id="1_3gb0s"]
+[ext_resource type="Texture2D" uid="uid://c7xfrujf6w8ld" path="res://Assets/Spritsheets/Rock-export.png" id="2_q5ed2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shjhy"]
+size = Vector2(91.375, 81.125)
+
+[node name="Rock" type="StaticBody2D"]
+script = ExtResource("1_3gb0s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.598224, 0.598225)
+texture = ExtResource("2_q5ed2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, 6)
+shape = SubResource("RectangleShape2D_shjhy")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

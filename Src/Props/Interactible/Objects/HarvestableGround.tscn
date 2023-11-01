@@ -1,3 +1,21 @@
-[gd_scene format=3 uid="uid://cq5jkeljpfkj1"]
+[gd_scene load_steps=3 format=3 uid="uid://cq5jkeljpfkj1"]
 
-[node name="HarvestableGround" type="Area2D"]
+[ext_resource type="Script" path="res://Src/Props/Interactible/Objects/HarvestableGround.gd" id="1_hanj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_shjhy"]
+size = Vector2(130.75, 100.25)
+
+[node name="HarvestableGround" type="StaticBody2D"]
+script = ExtResource("1_hanj0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.598224, 0.598225)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_shjhy")
+
+[node name="Growingtimer" type="Timer" parent="."]
+wait_time = 1.553
+
+[connection signal="input_event" from="." to="." method="_on_input_event" flags=18]
+[connection signal="timeout" from="Growingtimer" to="." method="_on_growingtimer_timeout"]
