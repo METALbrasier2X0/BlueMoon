@@ -12,6 +12,7 @@ func _on_usebox_body_entered(body):
 	interact = true
 	print(body)
 	Body = body
+	
 
 
 func _on_usebox_body_exited(body):
@@ -52,14 +53,13 @@ func find_and_use_dialogue():
 
 
 func _physics_process(delta):
-
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
 	
 	if interact == true:
-		if Input.is_action_pressed("Use"):
+		if Input.is_action_just_pressed("Use"):
 			Interact(Body)
 
 	if directionX:

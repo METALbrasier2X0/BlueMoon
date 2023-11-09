@@ -17,7 +17,7 @@ position = Vector2(184, 310)
 position = Vector2(813, 167)
 
 [node name="Tree3" parent="." instance=ExtResource("2_u5pxh")]
-position = Vector2(427, 164)
+position = Vector2(-104, 125)
 
 [node name="Npc" parent="." instance=ExtResource("4_jfc6k")]
 position = Vector2(727, 580)
