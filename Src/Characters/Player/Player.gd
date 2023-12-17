@@ -1,16 +1,16 @@
 extends CharacterBody2D
 
 
+
 const SPEED = 200.0
 var Body = null
 var interact = true
 
 var dialogue = preload("res://Src/UI/Dialogues/Dialogue.tscn")
-var instance = dialogue.instantiate()
+var instanceDialogue = dialogue.instantiate()
 
 func _on_usebox_body_entered(body):
 	interact = true
-	print(body)
 	Body = body
 	
 
@@ -49,7 +49,7 @@ function that loads the dialogue box
 func find_and_use_dialogue():
 	var dialogueNode = get_node_or_null('Dialogue')
 	if (!dialogueNode) :
-		add_child(instance)
+		add_child(instanceDialogue)
 
 
 func _physics_process(delta):

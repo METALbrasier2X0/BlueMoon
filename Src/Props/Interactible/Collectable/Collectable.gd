@@ -13,8 +13,10 @@ func _process(delta):
 		global_position = global_position.move_toward(PlayerPosition, delta * 400)
 		
 
+# make it detect wich item is detected
 func _on_body_entered(body):
 	if body.name == "Player" :
+		body.get_node('Inventory').add_item('wood', 1)
 		queue_free()
 
 

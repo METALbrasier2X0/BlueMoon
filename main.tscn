@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bnu055b5cxgfu"]
+[gd_scene load_steps=8 format=3 uid="uid://bnu055b5cxgfu"]
 
 [ext_resource type="PackedScene" uid="uid://cfptwv2rb2ivy" path="res://Src/Characters/Player/Player.tscn" id="1_0gpiu"]
 [ext_resource type="Script" path="res://main.gd" id="1_yed2f"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://r7i0i4y86ipn" path="res://Src/Characters/Npc/Npc.tscn" id="4_jfc6k"]
 [ext_resource type="PackedScene" uid="uid://btsedmkggvqhw" path="res://Src/Props/Interactible/Objects/Rock.tscn" id="5_rocpo"]
 [ext_resource type="PackedScene" uid="uid://cq5jkeljpfkj1" path="res://Src/Props/Interactible/Objects/HarvestableGround.tscn" id="6_md4ty"]
+[ext_resource type="PackedScene" uid="uid://cpqkdm1spx6qp" path="res://Src/Props/Interactible/Animals/Cow.tscn" id="7_ho5bt"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yed2f")
@@ -30,3 +31,6 @@ position = Vector2(169, 92)
 
 [node name="HarvestableGround" parent="." instance=ExtResource("6_md4ty")]
 position = Vector2(-127, 544)
+
+[node name="Cow" parent="." instance=ExtResource("7_ho5bt")]
+position = Vector2(204, 536)
