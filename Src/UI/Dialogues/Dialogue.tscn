@@ -1,27 +1,46 @@
 [gd_scene load_steps=3 format=3 uid="uid://cm6o2pa1mqlhp"]
 
-[ext_resource type="Texture2D" uid="uid://dups7ib030ur1" path="res://icon.svg" id="1_ndyvj"]
-[ext_resource type="Texture2D" uid="uid://da5mrihady0lt" path="res://Assets/Portraits/LadyWoof.png" id="2_1nwx6"]
+[ext_resource type="Texture2D" uid="uid://x6dgk5inl1cw" path="res://Assets/Portraits/panneau.png" id="1_0u02g"]
+[ext_resource type="Texture2D" uid="uid://di34x8sjj4iku" path="res://Assets/Portraits/ladywoof.png" id="2_heeys"]
 
 [node name="Dialogue" type="CanvasLayer"]
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-offset_left = -2.0
-offset_top = 928.0
-offset_right = 1920.0
-offset_bottom = 1084.0
-texture = ExtResource("1_ndyvj")
-
-[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
-layout_mode = 0
-offset_right = 1793.0
-offset_bottom = 157.0
-text = "BRuh"
-
-[node name="TextureRect" type="TextureRect" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 1765.0
-offset_right = 1922.0
-offset_bottom = 162.0
-texture = ExtResource("2_1nwx6")
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_left = 171.0
+offset_top = 494.0
+offset_right = 1247.0
+offset_bottom = 1002.0
+texture = ExtResource("1_0u02g")
 expand_mode = 1
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+offset_top = 912.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 974.0
+offset_right = 1920.0
+offset_bottom = 1165.0
+color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_top = -77.0
+offset_right = 1920.0
+offset_bottom = 110.0
+color = Color(0.133333, 0.12549, 0.203922, 1)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 1141.0
+offset_top = 138.0
+offset_right = 1862.0
+offset_bottom = 974.0
+texture = ExtResource("2_heeys")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 299.0
+offset_top = 662.0
+offset_right = 1148.0
+offset_bottom = 879.0
+text = "BRuh"
