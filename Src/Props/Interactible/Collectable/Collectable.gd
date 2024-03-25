@@ -16,7 +16,7 @@ func _process(delta):
 # make it detect wich item is detected
 func _on_body_entered(body):
 	if body.name == "Player" :
-		body.get_node('Inventory').add_item('wood', 1)
+		body.get_node('Inventory').add_item(name, 1, 'ressource')
 		queue_free()
 
 

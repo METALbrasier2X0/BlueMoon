@@ -9,15 +9,17 @@ func _ready():
 func _process(delta):
 	pass
 
-func interact():
-	var cutTree = preload("res://Assets/Spritsheets/tree2.png")
-	get_node("Sprite2D").set_texture(cutTree)
-	
-	if State == true :
-		var scene = load("res://Src/Props/Interactible/Collectable/Wood.tscn")
-		var drop = scene.instantiate()
-		add_child(drop)
+#checks if the equiped item is the one that can harvest said ressource
+func interact(item):
+	if item == 'axe' :
+		var cutTree = preload("res://Assets/Spritsheets/tree2.png")
+		get_node("Sprite2D").set_texture(cutTree)
 		
-	State = false
+		if State == true :
+			var scene = load("res://Src/Props/Interactible/Collectable/Wood.tscn")
+			var drop = scene.instantiate()
+			add_child(drop)
+			
+		State = false
 	
 	

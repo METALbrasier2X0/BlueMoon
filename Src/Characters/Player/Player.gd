@@ -27,8 +27,8 @@ Find a better solution for new dialogue instances
 		if (dialogueNode) :
 			dialogueNode.free()
 			
-			var dialogue = preload("res://Src/UI/Dialogues/Dialogue.tscn")
-			var instance = dialogue.instantiate()
+			var dialogueScene = preload("res://Src/UI/Dialogues/Dialogue.tscn")
+			dialogueScene.instantiate()
 
 	"""
 function that is called when the player interacts with any object
@@ -40,8 +40,8 @@ func Interact(body):
 	if body.name == "Npc" :
 		find_and_use_dialogue()
 	else :
-		body.interact()
-		
+		#interacts with world item and sends the currently hold tool in hand to detect interactions
+		body.interact(get_node('Inventory').check_required_in_inventory('axe'))
 
 	"""
 function that loads the dialogue box

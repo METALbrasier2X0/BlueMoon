@@ -9,7 +9,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func interact():
+func interact(item):
 	State = State + 1
 	var scene = load("res://Src/Props/Interactible/Collectable/Rock_Drop.tscn")
 	var drop = scene.instantiate()
