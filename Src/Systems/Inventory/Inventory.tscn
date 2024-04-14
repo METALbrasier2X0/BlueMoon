@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmcp2ugms57o2"]
+
+[ext_resource type="Script" path="res://Src/Characters/Player/Inventory.gd" id="1_lxrmq"]
+[ext_resource type="Texture2D" uid="uid://cr8vwr336dxjf" path="res://Assets/UI/barre_ditems.png" id="2_ksfx8"]
+[ext_resource type="Texture2D" uid="uid://2a7iasmn4hwr" path="res://Assets/UI/Seletion_barre.png" id="3_u1pvo"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_lxrmq")
+
+[node name="bar" type="Sprite2D" parent="."]
+texture = ExtResource("2_ksfx8")
+
+[node name="cursor" type="Sprite2D" parent="."]
+position = Vector2(-201, 0)
+texture = ExtResource("3_u1pvo")

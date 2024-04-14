@@ -4,7 +4,7 @@ extends CharacterBody2D
 func _physics_process(delta):
 	pass
 
-func interact():
+func interact(item):
 	var scene = load("res://Src/Props/Interactible/Collectable/Wood.tscn")
 	var drop = scene.instantiate()
 	add_child(drop)

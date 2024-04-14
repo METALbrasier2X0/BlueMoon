@@ -12,7 +12,7 @@ func _ready():
 func _process(delta):
 	pass
 
-func interact():
+func interact(item):
 	
 	if State == "Empty" :
 		Growing_timer.start()

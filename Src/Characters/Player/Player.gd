@@ -40,10 +40,11 @@ func Interact(body):
 	if body.name == "Npc" :
 		find_and_use_dialogue()
 	else :
+
 		#interacts with world item and sends the currently hold tool in hand to detect interactions
 		body.interact(get_node('Inventory').check_required_in_inventory('axe'))
 
-	"""
+"""
 function that loads the dialogue box
 """
 func find_and_use_dialogue():

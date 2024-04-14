@@ -1,6 +1,7 @@
 extends CanvasLayer
 var time = 0
 var speed = 3.5
+var opacity = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass
@@ -8,6 +9,10 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 
+	$CharacterSprite.modulate.a = opacity
+	opacity = opacity + 0.05
+	if ( time < 1.4 ):
+		opacity = 0
 	if ( time < 0.5 ):
 		$BottomBar.set_position($BottomBar.position - Vector2(0, speed), 2000)
 		$TopBar.set_position($TopBar.position + Vector2(0, speed),  2000)
