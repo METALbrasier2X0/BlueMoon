@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cfptwv2rb2ivy"]
+[gd_scene load_steps=8 format=3 uid="uid://cfptwv2rb2ivy"]
 
 [ext_resource type="Texture2D" uid="uid://dups7ib030ur1" path="res://icon.svg" id="1_2b6pb"]
 [ext_resource type="Script" path="res://Src/Characters/Player/Player.gd" id="1_bqmov"]
@@ -13,10 +13,14 @@ radius = 90.0888
 [sub_resource type="CircleShape2D" id="CircleShape2D_oc1fn"]
 radius = 142.352
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e6vnq"]
+size = Vector2(128, 20)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_bqmov")
 
 [node name="Inventory" parent="." instance=ExtResource("2_vxtou")]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_2b6pb")
@@ -42,9 +46,22 @@ drag_bottom_margin = 0.05
 
 [node name="AtractBox" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AtractBox"]
+[node name="Attack" type="CollisionShape2D" parent="AtractBox"]
 shape = SubResource("CircleShape2D_oc1fn")
+
+[node name="AttackBox" type="Area2D" parent="."]
+visible = false
+
+[node name="Attack" type="CollisionShape2D" parent="AttackBox"]
+position = Vector2(-2, 87)
+shape = SubResource("RectangleShape2D_e6vnq")
+debug_color = Color(0.92549, 0.219608, 0.427451, 0.419608)
+
+[node name="Polygon2D" type="Polygon2D" parent="AttackBox"]
+polygon = PackedVector2Array(62, 77, -66, 76, -67, 98, 61, 97)
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="body_entered" from="Usebox" to="." method="_on_usebox_body_entered"]
 [connection signal="body_exited" from="Usebox" to="." method="_on_usebox_body_exited"]
+[connection signal="body_entered" from="AttackBox" to="." method="_on_attack_box_body_entered"]
+[connection signal="body_exited" from="AttackBox" to="." method="_on_attack_box_body_exited"]
