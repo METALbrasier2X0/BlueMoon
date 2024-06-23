@@ -1,16 +1,45 @@
 extends CharacterBody2D
 
-
+"""
+Constants
+"""
 
 const SPEED = 200.0
+
+"""
+Variable declaration for player character
+"""
+
+enum Facing {
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN,
+}
+
+enum MovementState {
+	IDLE,
+	MOVING,
+}
+
+enum ActionState {
+	IDLE,
+	ATTACKING,
+}
+
+var current_facing: Facing = Facing.DOWN
+var current_move_state: MovementState = MovementState.IDLE
+var current_action_state: ActionState = ActionState.IDLE
+var current_stamina = 100
+
 var Body = null
 var Target = null
 var interact = true
 var attack = false
-var state = null
+
+
 var dialogue = preload("res://Src/UI/Dialogues/Dialogue.tscn")
 var instanceDialogue = dialogue.instantiate()
-
 
 """
 Collision checks
@@ -71,12 +100,17 @@ func find_and_use_dialogue():
 
 
 func Attack(Target):
-	await get_tree().create_timer(0.3).timeout
-	if attack == true && Target != null : 
-		Target.interact(get_node('Inventory').check_required_in_inventory('axe'))
-	get_node('AttackBox').visible = true
-	await get_tree().create_timer(0.2).timeout
-	get_node('AttackBox').visible = false
+	if (current_action_state == ActionState.IDLE) :
+		current_action_state = ActionState.ATTACKING
+		current_stamina -= 1
+		print(current_stamina)
+		await get_tree().create_timer(0.3).timeout
+		if attack == true && Target != null : 
+			Target.interact(get_node('Inventory').check_required_in_inventory('axe'))
+		get_node('AttackBox').visible = true
+		await get_tree().create_timer(0.2).timeout
+		get_node('AttackBox').visible = false
+		current_action_state = ActionState.IDLE
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -84,13 +118,6 @@ func _physics_process(delta):
 	var directionX = Input.get_axis("ui_left", "ui_right")
 	var directionY = Input.get_axis("ui_up", "ui_down")
 	
-	if Input.is_action_just_pressed("Attack"):
-		Attack(Target)
-		
-	if interact == true:
-		if Input.is_action_just_pressed("Use"):
-			Interact(Body)
-
 	if directionX:
 		velocity.x = directionX * SPEED
 	else:
@@ -103,6 +130,35 @@ func _physics_process(delta):
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 		
 	move_and_slide()
+	
+	"""
+	Checks the direction and state of the player
+	"""
+	
+	if directionY == 1 :
+		current_move_state = MovementState.MOVING
+		current_facing = Facing.DOWN
+	if directionY == -1 :
+		current_move_state = MovementState.MOVING
+		current_facing = Facing.UP
+	if directionX == 1 :
+		current_move_state = MovementState.MOVING
+		current_facing = Facing.RIGHT
+	if directionX == -1 :
+		current_move_state = MovementState.MOVING
+		current_facing = Facing.LEFT
+	if directionX == 0 && directionY == 0:
+		current_move_state = MovementState.IDLE
+
+
+	if Input.is_action_just_pressed("Attack"):
+		Attack(Target)
+		
+	if interact == true:
+		if Input.is_action_just_pressed("Use"):
+			Interact(Body)
+
+
 	pass # Replace with function body.
 
 
