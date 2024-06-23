@@ -1,10 +1,7 @@
 extends CharacterBody2D
 
-"""
-Constants
-"""
 
-const SPEED = 200.0
+
 
 """
 Variable declaration for player character
@@ -26,7 +23,7 @@ enum ActionState {
 	IDLE,
 	ATTACKING,
 }
-
+var SPEED = 200.0
 var current_facing: Facing = Facing.DOWN
 var current_move_state: MovementState = MovementState.IDLE
 var current_action_state: ActionState = ActionState.IDLE
@@ -101,16 +98,31 @@ func find_and_use_dialogue():
 
 func Attack(Target):
 	if (current_action_state == ActionState.IDLE) :
+		SPEED = 0
 		current_action_state = ActionState.ATTACKING
 		current_stamina -= 1
-		print(current_stamina)
+		match current_facing :
+			Facing.DOWN:
+				$AttackBox.set_position(Vector2(0, 90))
+				$AttackBox.set_rotation(0)
+			Facing.UP:
+				$AttackBox.set_position(Vector2(0, -90))
+				$AttackBox.set_rotation(0)
+			Facing.LEFT:
+				$AttackBox.set_position(Vector2(-90, 0))
+				$AttackBox.set_rotation(deg_to_rad(90))
+			Facing.RIGHT:
+				$AttackBox.set_position(Vector2(90, 0))
+				$AttackBox.set_rotation(deg_to_rad(90))
+				
 		await get_tree().create_timer(0.3).timeout
+		$AttackBox.visible = true
 		if attack == true && Target != null : 
 			Target.interact(get_node('Inventory').check_required_in_inventory('axe'))
-		get_node('AttackBox').visible = true
 		await get_tree().create_timer(0.2).timeout
-		get_node('AttackBox').visible = false
+		$AttackBox.visible = false
 		current_action_state = ActionState.IDLE
+		SPEED = 200
 
 func _physics_process(delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -134,19 +146,19 @@ func _physics_process(delta):
 	"""
 	Checks the direction and state of the player
 	"""
-	
-	if directionY == 1 :
-		current_move_state = MovementState.MOVING
-		current_facing = Facing.DOWN
-	if directionY == -1 :
-		current_move_state = MovementState.MOVING
-		current_facing = Facing.UP
+
 	if directionX == 1 :
 		current_move_state = MovementState.MOVING
 		current_facing = Facing.RIGHT
 	if directionX == -1 :
 		current_move_state = MovementState.MOVING
 		current_facing = Facing.LEFT
+	if directionY == 1 :
+		current_move_state = MovementState.MOVING
+		current_facing = Facing.DOWN
+	if directionY == -1 :
+		current_move_state = MovementState.MOVING
+		current_facing = Facing.UP
 	if directionX == 0 && directionY == 0:
 		current_move_state = MovementState.IDLE
 

@@ -13,7 +13,7 @@ class Item:
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Ajouter un exemple d'élément à l'inventaire au début du jeu
-	#add_item('axe', 1, 'tool')
+	add_item('axe', 1, 'tool')
 	print_inventory()
 	# ...
 

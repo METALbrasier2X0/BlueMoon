@@ -11,6 +11,7 @@ func _process(delta):
 
 #checks if the equiped item is the one that can harvest said ressource
 func interact(item):
+	print(item)
 	if item == 'axe' :
 		var cutTree = preload("res://Assets/Spritsheets/tree2.png")
 		get_node("Sprite2D").set_texture(cutTree)
