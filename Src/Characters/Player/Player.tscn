@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cfptwv2rb2ivy"]
+[gd_scene load_steps=9 format=3 uid="uid://cfptwv2rb2ivy"]
 
 [ext_resource type="Texture2D" uid="uid://dups7ib030ur1" path="res://icon.svg" id="1_2b6pb"]
 [ext_resource type="Script" path="res://Src/Characters/Player/Player.gd" id="1_bqmov"]
 [ext_resource type="PackedScene" uid="uid://dmcp2ugms57o2" path="res://Src/Systems/Inventory/Inventory.tscn" id="2_vxtou"]
+[ext_resource type="Texture2D" uid="uid://dggco6xbuqmn" path="res://Assets/Spritsheets/Protagoniste1.png" id="3_vof2o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_de4vt"]
-size = Vector2(128, 129)
+size = Vector2(48, 50)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ttk85"]
 radius = 90.0888
@@ -23,10 +24,12 @@ script = ExtResource("1_bqmov")
 visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_2b6pb")
+position = Vector2(0, -1)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("3_vof2o")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(2, 25)
 shape = SubResource("RectangleShape2D_de4vt")
 metadata/_edit_group_ = true
 

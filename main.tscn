@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnu055b5cxgfu"]
+[gd_scene load_steps=10 format=3 uid="uid://bnu055b5cxgfu"]
 
 [ext_resource type="PackedScene" uid="uid://cfptwv2rb2ivy" path="res://Src/Characters/Player/Player.tscn" id="1_0gpiu"]
 [ext_resource type="Script" path="res://main.gd" id="1_yed2f"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://btsedmkggvqhw" path="res://Src/Props/Interactible/Objects/Rock.tscn" id="5_rocpo"]
 [ext_resource type="PackedScene" uid="uid://cq5jkeljpfkj1" path="res://Src/Props/Interactible/Objects/HarvestableGround.tscn" id="6_md4ty"]
 [ext_resource type="PackedScene" uid="uid://cpqkdm1spx6qp" path="res://Src/Props/Interactible/Animals/Cow.tscn" id="7_ho5bt"]
+[ext_resource type="Script" path="res://Day&Night.gd" id="8_rjpg6"]
+[ext_resource type="Texture2D" uid="uid://cy7baolmv882m" path="res://Assets/Env/daynightcycle-gradient-texture.tres" id="9_c4ylw"]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_yed2f")
@@ -34,3 +36,7 @@ position = Vector2(-127, 544)
 
 [node name="Cow" parent="." instance=ExtResource("7_ho5bt")]
 position = Vector2(204, 536)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+script = ExtResource("8_rjpg6")
+gradient = ExtResource("9_c4ylw")
